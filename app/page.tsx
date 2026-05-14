@@ -54,12 +54,87 @@ export default function CapitalTrustFinal() {
       {/* --- NAVIGATION --- */}
       <nav style={{ position: "fixed", top: 0, width: "100%", zIndex: 50, height: 90, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", background: "rgba(5,7,10,0.95)", backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
         <img src={logoPath} alt="Logo" style={{ height: 50 }} />
+        
+        {/* Menu Desktop */}
         <div className="hidden md:flex" style={{ gap: 40, alignItems: "center" }}>
           <a href="#services" className="font-serif-luxury" style={{ fontSize: 10, color: "#94a3b8", textDecoration: "none", letterSpacing: "0.2em" }}>EXPERTISES</a>
           <a href="#valeurs" className="font-serif-luxury" style={{ fontSize: 10, color: "#94a3b8", textDecoration: "none", letterSpacing: "0.2em" }}>VALEURS</a>
           <button className="btn-gold" onClick={openWhatsApp}>Espace Client</button>
         </div>
+
+        {/* Bouton Burger Mobile */}
+        <button 
+          className="flex md:hidden" 
+          onClick={() => setMobileMenuOpen(true)}
+          style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexDirection: "column", gap: "6px", padding: "10px", zIndex: 60 }}
+        >
+          <span style={{ width: "25px", height: "2px", background: "#d4af37", display: "block" }}></span>
+          <span style={{ width: "25px", height: "2px", background: "#d4af37", display: "block" }}></span>
+          <span style={{ width: "25px", height: "2px", background: "#d4af37", display: "block" }}></span>
+        </button>
       </nav>
+
+      {/* --- SIDEBAR MOBILE (MENU) --- */}
+      <div 
+        style={{
+          position: "fixed",
+          top: 0,
+          right: isMobileMenuOpen ? 0 : "-100%",
+          width: "300px",
+          height: "100vh",
+          background: "#0a0e14",
+          zIndex: 100,
+          transition: "right 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+          boxShadow: isMobileMenuOpen ? "-10px 0 30px rgba(0,0,0,0.5)" : "none",
+          borderLeft: "1px solid rgba(212,175,55,0.1)",
+          display: "flex",
+          flexDirection: "column",
+          padding: "40px 30px",
+          boxSizing: "border-box"
+        }}
+      >
+        {/* Bouton Fermer */}
+        <button 
+          onClick={() => setMobileMenuOpen(false)}
+          style={{ background: "none", border: "none", cursor: "pointer", alignSelf: "flex-end", color: "#d4af37", fontSize: "24px", fontFamily: "sans-serif", marginBottom: "60px", padding: "0 10px" }}
+        >
+          ✕
+        </button>
+
+        {/* Liens du menu de la Sidebar */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "35px" }}>
+          <a 
+            href="#services" 
+            className="font-serif-luxury" 
+            onClick={() => setMobileMenuOpen(false)}
+            style={{ fontSize: 13, color: "#fff", textDecoration: "none", letterSpacing: "0.2em", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "15px" }}
+          >
+            EXPERTISES
+          </a>
+          <a 
+            href="#valeurs" 
+            className="font-serif-luxury" 
+            onClick={() => setMobileMenuOpen(false)}
+            style={{ fontSize: 13, color: "#fff", textDecoration: "none", letterSpacing: "0.2em", borderBottom: "1px solid rgba(255,255,255,0.05)", paddingBottom: "15px" }}
+          >
+            VALEURS
+          </a>
+          
+          <div style={{ marginTop: "20px" }}>
+            <button className="btn-gold" style={{ width: "100%", textAlign: "center" }} onClick={() => { setMobileMenuOpen(false); openWhatsApp(); }}>
+              Espace Client
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay (fond semi-transparent quand la sidebar est ouverte) */}
+      {isMobileMenuOpen && (
+        <div 
+          onClick={() => setMobileMenuOpen(false)}
+          style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)", zIndex: 99 }}
+        />
+      )}
 
       {/* --- HERO SECTION --- */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "140px 5% 80px" }}>
