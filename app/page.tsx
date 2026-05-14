@@ -2,243 +2,168 @@
 
 import React, { useState } from "react";
 
-// --- SERVICES INSTITUTIONNELS (Source: WhatsApp Image 2026-05-14 at 16.21.08 (1).jpeg) ---
+// --- DONNÉES INSTITUTIONNELLES ---
 const services = [
-  {
-    title: "ÉPARGNE",
-    desc: "Des solutions d'épargne sécurisées et adaptées à vos objectifs."
-  },
-  {
-    title: "PRÊT",
-    desc: "Financement de vos projets personnels ou professionnels avec des taux compétitifs."
-  },
-  {
-    title: "ASSURANCE",
-    desc: "Protégez ce qui compte le plus avec nos solutions d'assurance adaptées."
-  },
-  {
-    title: "PLACEMENT",
-    desc: "Faites fructifier votre argent grâce à des placements rentables et sécurisés."
-  },
-  {
-    title: "COMPTES BANCAIRES",
-    desc: "Des comptes courants flexibles et des services bancaires modernes."
-  },
-  {
-    title: "BANQUE EN LIGNE",
-    desc: "Gérez vos finances facilement, où que vous soyez et à tout moment."
-  },
-  {
-    title: "ACCOMPAGNEMENT",
-    desc: "Un accompagnement personnalisé pour vous aider à atteindre vos ambitions."
-  },
-  {
-    title: "GESTION DE PATRIMOINE",
-    desc: "Optimisez et protégez votre patrimoine avec nos experts."
-  }
+  { title: "ÉPARGNE", desc: "Des solutions d'épargne sécurisées et adaptées à vos objectifs pour bâtir votre futur." },
+  { title: "PRÊT", desc: "Financement de vos projets immobiliers ou professionnels avec des taux préférentiels." },
+  { title: "ASSURANCE", desc: "Une protection complète pour votre famille, vos biens et votre activité professionnelle." },
+  { title: "PLACEMENT", desc: "Expertise en gestion d'actifs pour maximiser vos rendements en toute sérénité." },
+  { title: "COMPTES BANCAIRES", desc: "Une gestion simplifiée avec nos cartes Premium et nos services de conciergerie." },
+  { title: "BANQUE EN LIGNE", desc: "Accès sécurisé 24h/7j à vos comptes via notre interface digitale haute performance." },
+  { title: "ACCOMPAGNEMENT", desc: "Un conseiller dédié pour une stratégie financière personnalisée et efficace." },
+  { title: "GESTION DE PATRIMOINE", desc: "Ingénierie patrimoniale pour la transmission et l'optimisation fiscale." }
 ];
 
-export default function CapitalTrustDark() {
+const values = [
+  { title: "SÉCURITÉ", desc: "Protocoles de cryptage de niveau bancaire international pour vos actifs." },
+  { title: "PROXIMITÉ", desc: "Une présence forte à Abidjan et un conseiller qui connaît votre dossier." },
+  { title: "INNOVATION", desc: "Des outils digitaux de pointe pour une banque sans frontières." }
+];
+
+export default function CapitalTrustFinal() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const whatsappNumber = "2250150301931";
   const logoPath = "/logo.jpeg";
 
   const openWhatsApp = () => {
     window.open(`https://wa.me/${whatsappNumber}`, "_blank");
-    setMobileMenuOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-[#05070a] text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#05070a] text-white overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Plus+Jakarta+Sans:wght@200;300;400;600&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap');
         .font-serif-luxury { font-family: 'Cinzel', serif; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; margin: 0; }
         .gold-gradient-text {
           background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 45%, #B38728 70%, #FBF5B7 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
         .btn-gold {
-          background: transparent;
-          color: #d4af37;
-          border: 1px solid #d4af37;
-          padding: 1rem 2.5rem;
-          font-weight: 600;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          cursor: pointer;
-          text-transform: uppercase;
-          letter-spacing: 3px;
-          font-size: 9px;
+          background: transparent; color: #d4af37; border: 1px solid #d4af37;
+          padding: 1rem 2.2rem; font-family: 'Cinzel', serif; font-weight: 600;
+          transition: all 0.4s ease; cursor: pointer; text-transform: uppercase;
+          letter-spacing: 2px; font-size: 10px; text-decoration: none;
         }
-
-        .btn-gold:hover {
-          background: #d4af37;
-          color: #05070a;
-          box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-
-        .card-dark {
-          background: #0a0e14;
-          border: 1px solid #1a202c;
-          transition: all 0.5s ease;
-        }
-
-        .card-dark:hover {
-          border-color: #d4af37;
-          background: #0d121a;
-        }
-
-        .nav-link {
-          font-size: 9px;
-          letter-spacing: 0.3em;
-          transition: color 0.3s ease;
-          color: #94a3b8;
-        }
-
-        .nav-link:hover { color: #d4af37; }
+        .btn-gold:hover { background: #d4af37; color: #05070a; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        .footer-link { color: #6b7280; text-decoration: none; transition: color 0.3s; font-size: 13px; }
+        .footer-link:hover { color: #d4af37; }
+        @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr !important; text-align: center; } .hero-content { align-items: center !important; } .hero-image { display: none; } }
       `}</style>
 
-      {/* --- OVERLAY & MOBILE MENU --- */}
-      <div className={`fixed inset-0 bg-black/90 backdrop-blur-md z-[100] transition-opacity duration-500 ${isMobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`} onClick={() => setMobileMenuOpen(false)}></div>
-      <div className={`fixed top-0 right-0 bottom-0 w-full max-w-xs bg-[#05070a] border-l border-white/5 z-[110] transition-transform duration-500 p-12 flex flex-col ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <button onClick={() => setMobileMenuOpen(false)} className="self-end mb-20 text-gold-gradient-text">✕</button>
-        <nav className="flex flex-col gap-10 font-serif-luxury">
-          <a href="#accueil" onClick={() => setMobileMenuOpen(false)} className="text-sm tracking-widest">ACCUEIL</a>
-          <a href="#services" onClick={() => setMobileMenuOpen(false)} className="text-sm tracking-widest">SERVICES</a>
-          <button onClick={openWhatsApp} className="btn-gold mt-10">WHATSAPP</button>
-        </nav>
-      </div>
-
       {/* --- NAVIGATION --- */}
-      <nav className="fixed top-0 w-full z-50 bg-[#05070a]/80 backdrop-blur-xl border-b border-white/5 h-24">
-        <div className="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <img src={logoPath} alt="Capital Trust Logo" className="h-16 w-auto" />
-            <div className="hidden lg:block border-l border-white/10 pl-6">
-              <p className="font-serif-luxury text-sm tracking-[0.2em] leading-none mb-1">CAPITAL TRUST</p>
-              <p className="text-[7px] uppercase tracking-[0.4em] text-slate-500">Votre confiance, notre engagement</p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex gap-12 items-center font-serif-luxury">
-            <a href="#accueil" className="nav-link">ACCUEIL</a>
-            <a href="#services" className="nav-link">SERVICES</a>
-            <button onClick={openWhatsApp} className="btn-gold">CONTACT DIRECT</button>
-          </div>
-
-          <button onClick={() => setMobileMenuOpen(true)} className="md:hidden text-gold-gradient-text">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16" strokeWidth="1.5" strokeLinecap="round" /></svg>
-          </button>
+      <nav style={{ position: "fixed", top: 0, width: "100%", zIndex: 50, height: 90, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", background: "rgba(5,7,10,0.95)", backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <img src={logoPath} alt="Logo" style={{ height: 50 }} />
+        <div className="hidden md:flex" style={{ gap: 40, alignItems: "center" }}>
+          <a href="#services" className="font-serif-luxury" style={{ fontSize: 10, color: "#94a3b8", textDecoration: "none", letterSpacing: "0.2em" }}>EXPERTISES</a>
+          <a href="#valeurs" className="font-serif-luxury" style={{ fontSize: 10, color: "#94a3b8", textDecoration: "none", letterSpacing: "0.2em" }}>VALEURS</a>
+          <button className="btn-gold" onClick={openWhatsApp}>Espace Client</button>
         </div>
       </nav>
 
       {/* --- HERO SECTION --- */}
-      <section id="accueil" className="relative pt-48 pb-32 px-6 min-h-screen flex items-center">
-        {/* Background Subtle Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
-        
-        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-24 items-center relative z-10">
-          <div>
-            <span className="inline-block h-px w-12 bg-gold/50 mb-8 align-middle"></span>
-            <span className="font-serif-luxury text-gold tracking-[0.5em] text-[10px] ml-4 uppercase">Partenaire Financier de Confiance</span>
-            
-            <h1 className="text-5xl md:text-8xl font-serif-luxury leading-[1.1] mb-12 mt-6 tracking-tight">
-              Bâtissons <br />
-              <span className="gold-gradient-text italic">l'avenir.</span>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "140px 5% 80px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", width: "100%", display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 80, alignItems: "center" }} className="hero-grid">
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }} className="hero-content">
+            <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 25 }}>
+              <span style={{ width: 40, height: 1, background: "#d4af37" }} />
+              <span className="font-serif-luxury" style={{ fontSize: 10, color: "#d4af37", letterSpacing: "0.4em" }}>PRIVATE BANKING</span>
+            </div>
+            <h1 className="font-serif-luxury" style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)", lineHeight: 1.1, marginBottom: 30 }}>
+              Bâtissons <br /><span className="gold-gradient-text" style={{ fontStyle: "italic" }}>l'avenir.</span>
             </h1>
-            
-            <p className="text-lg text-slate-400 mb-16 max-w-md font-light leading-relaxed">
-              Des solutions sur mesure pour réaliser vos projets et sécuriser votre patrimoine avec excellence.
+            <p style={{ fontSize: "clamp(16px, 1.5vw, 19px)", color: "#94a3b8", lineHeight: 1.8, maxWidth: 580, marginBottom: 45, fontWeight: 300 }}>
+              Des solutions sur mesure pour réaliser vos projets et sécuriser votre patrimoine avec excellence. 
+              Une approche personnalisée pour chaque étape de votre vie financière.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-10 items-start sm:items-center">
-              <button onClick={openWhatsApp} className="btn-gold px-14 py-5">OUVRIR UN COMPTE</button>
-              <a href="#services" className="font-serif-luxury text-[9px] tracking-[0.4em] text-slate-500 hover:text-gold transition-colors">
-                DÉCOUVRIR NOS OFFRES —
-              </a>
-            </div>
+            <button className="btn-gold" onClick={openWhatsApp}>Prendre Rendez-vous</button>
           </div>
-
-          <div className="hidden lg:block relative group">
-            <div className="absolute -inset-4 border border-gold/20 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
-            <div className="relative overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200" 
-                alt="Finance de Luxe" 
-                className="w-full h-[700px] object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-75 transition-all duration-1000"
-              />
-            </div>
+          <div className="hero-image" style={{ position: "relative" }}>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" alt="Finance Luxe" style={{ width: "100%", height: 550, objectFit: "cover", borderRadius: "2px", filter: "brightness(0.7) grayscale(0.3)" }} />
           </div>
         </div>
       </section>
 
-      {/* --- SERVICES SECTION (Source Image 1) --- */}
-      <section id="services" className="py-40 px-6 bg-[#030508]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-32">
-            <h3 className="font-serif-luxury text-gold tracking-[0.7em] text-[10px] uppercase mb-6">Expertise & Patrimoine</h3>
-            <h2 className="text-4xl md:text-5xl font-serif-luxury uppercase tracking-widest gold-gradient-text">Nos Solutions Bancaires</h2>
-          </div>
+      {/* --- VALEURS SECTION --- */}
+      <section id="valeurs" style={{ padding: "100px 5%", background: "#080a0f" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 40 }}>
+          {values.map((v, i) => (
+            <div key={i} style={{ border: "1px solid rgba(212,175,55,0.1)", padding: "40px", textAlign: "center" }}>
+              <h3 className="font-serif-luxury gold-gradient-text" style={{ fontSize: "14px", marginBottom: "20px", letterSpacing: "0.2em" }}>{v.title}</h3>
+              <p style={{ fontSize: "14px", color: "#6b7280", lineHeight: "1.6" }}>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
+      {/* --- SERVICES --- */}
+      <section id="services" style={{ padding: "120px 5%", background: "#05070a" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <h2 className="font-serif-luxury" style={{ fontSize: "2rem", textAlign: "center", marginBottom: 80, letterSpacing: "0.2em" }}>NOS EXPERTISES <span className="gold-gradient-text">PRIVÉES</span></h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 30 }}>
             {services.map((s, i) => (
-              <div key={i} className="bg-[#05070a] p-14 flex flex-col group card-dark">
-                <div className="w-1 h-12 bg-gold/30 mb-10 group-hover:bg-gold transition-colors duration-500"></div>
-                <h4 className="font-serif-luxury text-xs mb-8 tracking-[0.2em] group-hover:text-gold transition-colors uppercase leading-loose">{s.title}</h4>
-                <p className="text-[13px] text-slate-500 leading-relaxed font-light mb-10 flex-1">
-                  {s.desc}
-                </p>
-                <button onClick={openWhatsApp} className="text-[8px] font-bold tracking-[0.3em] uppercase text-slate-600 group-hover:text-gold transition-colors text-left">
-                  AUDIT CONSEIL 
-                </button>
+              <div key={i} style={{ background: "#0a0e14", padding: "40px", border: "1px solid #1a202c" }}>
+                <h4 className="font-serif-luxury" style={{ color: "#d4af37", marginBottom: 20, fontSize: "13px" }}>{s.title}</h4>
+                <p style={{ fontSize: "14px", color: "#94a3b8", lineHeight: 1.7 }}>{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- FOOTER (Source Image 1 & 2) --- */}
-      <footer className="bg-black pt-32 pb-16 px-6 border-t border-white/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-20 mb-32">
-            <div className="md:col-span-5">
-              <img src={logoPath} alt="Capital Trust" className="h-24 mb-12" />
-              <p className="font-serif-luxury gold-gradient-text tracking-[0.3em] text-[11px] mb-8 uppercase">Capital Trust Bank</p>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-sm font-light">
-                La transparence, la sécurité et la proximité au service de votre réussite financière.
+      {/* --- FOOTER ÉTENDU --- */}
+      <footer style={{ background: "#000", borderTop: "1px solid rgba(255,255,255,0.05)", padding: "100px 5% 40px" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 60, marginBottom: 80 }}>
+            
+            {/* Colonne 1: Brand */}
+            <div>
+              <img src={logoPath} alt="Logo" style={{ height: 60, marginBottom: 25 }} />
+              <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: "1.8" }}>
+                Capital Trust Bank est une institution financière agréée dédiée à la gestion de fortune et aux solutions bancaires haut de gamme.
               </p>
             </div>
 
-            <div className="md:col-span-3">
-              <h5 className="font-serif-luxury text-gold uppercase text-[10px] tracking-[0.5em] mb-12">ASSISTANCE</h5>
-              <div className="space-y-6 text-[11px] text-slate-500 tracking-[0.2em] font-light">
-                <p className="hover:text-white transition-colors">+225 01 50 30 19 31</p>
-                <p className="hover:text-white transition-colors">+225 07 67 01 38 15</p>
-                <p className="hover:text-white transition-colors lowercase">contact@capitaltrust.ci</p>
+            {/* Colonne 2: Liens */}
+            <div>
+              <h5 className="font-serif-luxury" style={{ fontSize: "11px", color: "#d4af37", marginBottom: 25, letterSpacing: "0.2em" }}>SERVICES</h5>
+              <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+                <a href="#" className="footer-link">Comptes Courants</a>
+                <a href="#" className="footer-link">Crédits Immobiliers</a>
+                <a href="#" className="footer-link">Gestion de Fortune</a>
+                <a href="#" className="footer-link">Cartes de Crédit Luxe</a>
               </div>
             </div>
 
-            <div className="md:col-span-4">
-              <h5 className="font-serif-luxury text-gold uppercase text-[10px] tracking-[0.5em] mb-12">RÉSIDENCE</h5>
-              <div className="space-y-6 text-[11px] text-slate-500 tracking-[0.2em] font-light">
-                <p>Abidjan, Côte d'Ivoire</p>
-                <p>Quartier Bonoumin</p>
-                <div className="pt-8 border-t border-white/5">
-                  <p className="font-serif-luxury italic text-[11px] text-slate-600 normal-case tracking-normal">Votre succès est notre priorité</p>
-                </div>
+            {/* Colonne 3: Support & Sécurité */}
+            <div>
+              <h5 className="font-serif-luxury" style={{ fontSize: "11px", color: "#d4af37", marginBottom: 25, letterSpacing: "0.2em" }}>SUPPORT & SÉCURITÉ</h5>
+              <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+                <a href="#" className="footer-link">Centre de Sécurité</a>
+                <a href="#" className="footer-link">Nous Contacter</a>
+                <a href="#" className="footer-link">Opposition Cartes</a>
+                <a href="#" className="footer-link">F.A.Q</a>
               </div>
+            </div>
+
+            {/* Colonne 4: Contact Direct */}
+            <div>
+              <h5 className="font-serif-luxury" style={{ fontSize: "11px", color: "#d4af37", marginBottom: 25, letterSpacing: "0.2em" }}>SIÈGE SOCIAL</h5>
+              <p style={{ fontSize: "13px", color: "#6b7280", lineHeight: "1.8" }}>
+                Abidjan, Cocody Bonoumin<br />
+                Côte d'Ivoire<br />
+                Tél: +225 01 50 30 19 31
+              </p>
             </div>
           </div>
 
-          <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
-            <p className="text-[8px] uppercase tracking-[0.5em] text-slate-700">© 2026 CAPITAL TRUST — BÂTISSONS ENSEMBLE VOTRE AVENIR</p>
-            <div className="flex gap-12 text-[8px] uppercase tracking-[0.4em] font-bold text-slate-600">
-              <span className="hover:text-gold transition-colors cursor-pointer">LÉGAL</span>
-              <span className="hover:text-gold transition-colors cursor-pointer">PRIVACY</span>
+          {/* Bottom Footer */}
+          <div style={{ borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "40px", display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "center", gap: "20px" }}>
+            <p style={{ fontSize: "11px", color: "#333", letterSpacing: "0.1em" }}>© 2026 CAPITAL TRUST BANK. TOUS DROITS RÉSERVÉS.</p>
+            <div style={{ display: "flex", gap: "30px" }}>
+              <a href="#" className="footer-link" style={{ fontSize: "11px" }}>Mentions Légales</a>
+              <a href="#" className="footer-link" style={{ fontSize: "11px" }}>Politique de Confidentialité</a>
+              <a href="#" className="footer-link" style={{ fontSize: "11px" }}>Cookies</a>
             </div>
           </div>
         </div>
